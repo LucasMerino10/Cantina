@@ -14,7 +14,7 @@ function CantinaChat() {
 
   const sendMessage = (e) => {
     if (e.key === "Enter") {
-      const date = Date.now();
+      const date = new Date().toISOString().slice(0, 19).replace("T", " ");
       const message = {
         id: messages.length + 1,
         content: e.target.value,
