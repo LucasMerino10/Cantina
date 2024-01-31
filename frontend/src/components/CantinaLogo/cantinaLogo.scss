@@ -1,0 +1,12 @@
+.nav {
+  display: flex;
+  height: auto;
+  justify-content: center;
+
+  &__link {
+    width: 50%;
+  }
+  &__logo {
+    width: 100%;
+  }
+}

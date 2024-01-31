@@ -1,0 +1,68 @@
+@import "./src/variables.scss";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 0.8rem;
+  border-top-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+  background-color: $blackBg;
+  border: 2px solid $whiteGrey;
+
+  &__title {
+    color: $white;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  &__fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+  }
+
+  &__label {
+    color: $white;
+  }
+
+  &__input {
+    color: $whiteGrey;
+    background-color: $inputBg;
+    border: 1px solid $inputBorder;
+    border-radius: 4px;
+    padding: 0.2rem 1rem;
+  }
+
+  &__button {
+    color: $white;
+    margin: 0 auto;
+    background-color: $blackBg;
+    border: 1px solid $whiteGrey;
+    border-radius: 32px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem;
+  }
+
+  &__info {
+    font-size: 1rem;
+    color: $white;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__redirect {
+    color: $blue;
+    text-align: center;
+    font-size: 0.8rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+}
