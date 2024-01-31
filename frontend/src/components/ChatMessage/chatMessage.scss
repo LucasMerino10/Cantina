@@ -8,6 +8,7 @@
     justify-content: space-between;
     width: 90%;
     overflow-x: hidden;
+    margin: 1.5rem auto;
     gap: 1rem;
 
     &--other {
@@ -81,4 +82,12 @@
 .green {
   color: $green;
   border: 2px solid $green;
+}
+
+@media screen and (min-width: 768px) {
+  .chat {
+    &__message {
+      justify-content: space-around;
+    }
+  }
 }

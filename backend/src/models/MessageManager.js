@@ -8,7 +8,7 @@ class MessageManager extends AbstractManager {
 
   async read() {
     const [messages] = await this.database.query(
-      `SELECT id, DATE_FORMAT(message_date, "%d/%m %H:%i"), content, user_id FROM ${this.table}`
+      `SELECT id, DATE_FORMAT(message_date, "%d/%m %H:%i") AS message_date, content, user_id FROM ${this.table}`
     );
 
     return messages;

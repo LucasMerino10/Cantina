@@ -15,6 +15,13 @@ const router = createBrowserRouter([
   {
     path: "/chat",
     element: <Cantina />,
+    loader: async () => {
+      const messageResult = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/messages`
+      );
+      const dbMessages = await messageResult.json();
+      return dbMessages;
+    },
   },
 ]);
 

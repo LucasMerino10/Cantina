@@ -9,11 +9,11 @@ function SignInForm() {
     navigate("/chat");
   };
   return (
-    <form action="" className="form" onSubmit={handleSubmit}>
+    <form action="" className="form">
       <h3 className="form__title">Sign In</h3>
       <Fieldset label="Username" placeholder="Enter your username" />
       <Fieldset label="Password" placeholder="Enter your password" />
-      <button type="submit" className="form__button">
+      <button type="button" className="form__button" onClick={handleSubmit}>
         Enter the Cantina
       </button>
       <p className="form__info">Already have an account ?</p>

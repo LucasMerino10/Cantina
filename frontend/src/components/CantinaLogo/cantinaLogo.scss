@@ -1,7 +1,9 @@
 .nav {
   display: flex;
-  height: auto;
   justify-content: center;
+  align-items: center;
+  height: 20vh;
+  max-width: 40rem;
 
   &__link {
     width: 50%;

@@ -1,4 +1,5 @@
 @import "./variables.scss";
+@import "./mixins.scss";
 
 * {
   margin: 0;
@@ -8,12 +9,6 @@
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 100vw;
-  min-height: 100vh;
+  @include container;
   background-image: url("./assets/images/3d-hyperspace-background-with-warp-tunnel-effect_1048-12526.jpg");
-  background-size: cover;
-  background-position: center;
 }

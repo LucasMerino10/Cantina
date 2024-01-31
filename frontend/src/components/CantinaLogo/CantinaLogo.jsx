@@ -3,7 +3,7 @@ import "./cantinaLogo.scss";
 
 function CantinaLogo() {
   return (
-    <nav className="nav">
+    <header className="nav">
       <Link to="/" className="nav__link">
         <img
           src="/src/assets/CantinaLogo.png"
@@ -11,7 +11,7 @@ function CantinaLogo() {
           className="nav__logo"
         />
       </Link>
-    </nav>
+    </header>
   );
 }
 
