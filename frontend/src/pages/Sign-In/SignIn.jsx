@@ -1,9 +1,10 @@
 import CantinaLogo from "../../components/CantinaLogo/CantinaLogo";
 import SignInForm from "../../components/SignInForm/SignInForm";
+import "./signIn.scss";
 
 function SignIn() {
   return (
-    <main className="container">
+    <main className="signIn__container">
       <CantinaLogo />
       <SignInForm />
     </main>

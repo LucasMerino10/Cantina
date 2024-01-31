@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+@mixin display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-top-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+  background-color: $blackBg;
+  border: 2px solid $whiteGrey;
+}
+
+@mixin container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}

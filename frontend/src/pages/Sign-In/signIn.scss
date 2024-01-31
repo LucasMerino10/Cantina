@@ -1,0 +1,7 @@
+@import "./src/mixins.scss";
+
+.signIn__container {
+  @include container;
+  width: 80%;
+  background-image: url("/src/assets/images/3d-hyperspace-background-with-warp-tunnel-effect_1048-12526.jpg");
+}

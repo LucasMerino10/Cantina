@@ -1,0 +1,7 @@
+@import "./src/mixins.scss";
+
+.cantina__container {
+  @include container;
+  justify-content: space-between;
+  background-image: url("/src/assets/images/CantinaBand.jpg");
+}

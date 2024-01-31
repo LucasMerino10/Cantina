@@ -10,7 +10,7 @@ create table user (
 create table message (
   id int primary key auto_increment not null,
   content tinytext not null,
-  message_date datetime,
+  message_date timestamp,
   user_id int not null,
   constraint FK_UserMessage foreign key (user_id)
   references user(id)

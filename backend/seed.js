@@ -29,10 +29,10 @@ const seed = async () => {
           ("ChokeMaster", "darth.vader@email.com", "password", "src/assets/images/Darth-Vader.png", "red")`);
 
     await database.query(`INSERT INTO message (content, message_date, user_id)
-                          VALUES(${faker.lorem.sentence}, 2024-01-31 08:48:27 AM, 1),
-                                (${faker.lorem.sentence}, "2024-01-31 08:52:30 AM", 3),
-                                (${faker.lorem.sentence}, "2024-01-31 08:52:59 AM", 2),
-                                (${faker.lorem.sentence}, "2024-01-31 08:54:18 AM", 1)`);
+                          VALUES(${faker.lorem.sentence}, "2024-01-31 08:48:27", 1),
+                                (${faker.lorem.sentence}, "2024-01-31 08:52:30", 3),
+                                (${faker.lorem.sentence}, "2024-01-31 08:52:59", 2),
+                                (${faker.lorem.sentence}, "2024-01-31 08:54:18", 1)`);
 
     /* ************************************************************************* */
 
