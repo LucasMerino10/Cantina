@@ -4,6 +4,7 @@
   @include container;
   justify-content: space-between;
   background-image: url("/src/assets/images/CantinaBand.jpg");
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {

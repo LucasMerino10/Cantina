@@ -35,12 +35,14 @@ function SignInForm() {
     <form className="form">
       <h3 className="form__title">Sign In</h3>
       <Fieldset
+        type="text"
         label="Email"
         placeholder="Enter your email"
         value={email}
         setValue={setEmail}
       />
       <Fieldset
+        type="password"
         label="Password"
         placeholder="Enter your password"
         value={password}
@@ -49,7 +51,7 @@ function SignInForm() {
       <button type="button" className="form__button" onClick={handleSubmit}>
         Enter the Cantina
       </button>
-      <p className="form__info">Already have an account ?</p>
+      <p className="form__info">You don't have an account ?</p>
       <Link to="/signUp" className="form__redirect">
         Create an account
       </Link>

@@ -1,0 +1,16 @@
+.toggleMusic {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: none;
+  &--on {
+    background-image: url("./src/assets/speaker-high.svg");
+  }
+
+  &--off {
+    background-image: url("./src/assets/speaker-slash.svg");
+  }
+}
