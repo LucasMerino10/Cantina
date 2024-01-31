@@ -24,18 +24,26 @@ const seed = async () => {
 
     // Insert fake data into the 'item' table
     queries.push(
-      database.query(`INSERT INTO user (username, email, password, avatar, color)
-    VALUES("HighGround", "obi.wan@email.com", "password", "src/assets/images/Obi-Wan.png", "blue"),
-          ("GreenGuy", "yoda@email.com", "password", "src/assets/images/Yoda.png", "green"),
-          ("ChokeMaster", "darth.vader@email.com", "password", "src/assets/images/Darth-Vader.png", "red")`)
+      database.query(`INSERT INTO user (username, email, password_hash, avatar, color)
+    VALUES("HighGround", "obi.wan@email.com", "$argon2id$v=19$m=16,t=2,p=1$Y3RXSDY1Y210T1c0YjM5dg$IEvColWiVYtiyGDckiDY8Q", "src/assets/images/Obi-Wan.png", "blue"),
+          ("GreenGuy", "yoda@email.com", "$argon2id$v=19$m=16,t=2,p=1$Y3RXSDY1Y210T1c0YjM5dg$IEvColWiVYtiyGDckiDY8Q", "src/assets/images/Yoda.png", "green"),
+          ("ChokeMaster", "darth.vader@email.com", "$argon2id$v=19$m=16,t=2,p=1$Y3RXSDY1Y210T1c0YjM5dg$IEvColWiVYtiyGDckiDY8Q", "src/assets/images/Darth-Vader.png", "red")`)
     );
 
     queries.push(
-      database.query(`INSERT INTO message (content, message_date, user_id)
-                          VALUES(${faker.lorem.sentence}, "2024-01-31 08:48:27", 1),
-                                (${faker.lorem.sentence}, "2024-01-31 08:52:30", 3),
-                                (${faker.lorem.sentence}, "2024-01-31 08:52:59", 2),
-                                (${faker.lorem.sentence}, "2024-01-31 08:54:18", 1)`)
+      database.query(
+        `INSERT INTO message (content, message_date, user_id)
+                          VALUES(?, "2024-01-31 08:48:27", 1),
+                                (?, "2024-01-31 08:52:30", 3),
+                                (?, "2024-01-31 08:52:59", 2),
+                                (?, "2024-01-31 08:54:18", 1)`,
+        [
+          faker.lorem.sentence(),
+          faker.lorem.sentence(),
+          faker.lorem.sentence(),
+          faker.lorem.sentence(),
+        ]
+      )
     );
 
     /* ************************************************************************* */

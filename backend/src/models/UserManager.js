@@ -14,6 +14,16 @@ class UserManager extends AbstractManager {
 
     return result[0];
   }
+
+  async findByEmail(email) {
+    const [result] = await this.database.query(
+      `
+    SELECT * from user WHERE email = ?`,
+      [email]
+    );
+
+    return result[0];
+  }
 }
 
 module.exports = UserManager;

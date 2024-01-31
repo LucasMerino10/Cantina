@@ -6,10 +6,8 @@ import "./cantinaChat.scss";
 
 function CantinaChat() {
   const dbMessages = useLoaderData();
-  const { messages, setMessages, users, userId } = useGlobalContext();
-  const { avatar } = users.find((e) => e.id === userId);
+  const { messages, setMessages, loggedUser } = useGlobalContext();
   const [userMessage, setUserMessage] = useState("");
-
   useEffect(() => {
     setMessages(dbMessages);
   }, []);
@@ -24,7 +22,7 @@ function CantinaChat() {
       const message = {
         content: e.target.value,
         message_date: date,
-        user_id: userId,
+        user_id: loggedUser.id,
       };
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/messages`,
@@ -55,7 +53,11 @@ function CantinaChat() {
           ))}
       </section>
       <footer className="chat__footer">
-        <img src={avatar} alt="" className="chat__footer__avatar" />
+        <img
+          src={loggedUser && loggedUser.avatar}
+          alt=""
+          className="chat__footer__avatar"
+        />
         <input
           type="text"
           className="chat__footer__input"

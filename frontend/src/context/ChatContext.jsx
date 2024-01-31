@@ -30,7 +30,7 @@ function ChatContextProvider({ children }) {
     },
   ]);
 
-  const [userId, setUserId] = useState(1);
+  const [loggedUser, setLoggedUser] = useState(null);
 
   const contextValue = useMemo(() => {
     return {
@@ -38,10 +38,10 @@ function ChatContextProvider({ children }) {
       setMessages,
       users,
       setUsers,
-      userId,
-      setUserId,
+      loggedUser,
+      setLoggedUser,
     };
-  }, [messages, setMessages, users, setUsers, userId, setUserId]);
+  }, [messages, setMessages, users, setUsers, loggedUser, setLoggedUser]);
 
   return (
     <GlobalContext.Provider value={contextValue}>

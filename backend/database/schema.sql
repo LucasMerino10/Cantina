@@ -2,7 +2,7 @@ create table user (
   id int primary key auto_increment not null,
   username varchar(50) not null,
   email varchar(50) not null,
-  password varchar(255) not null,
+  password_hash varchar(255) not null,
   avatar varchar(100) not null,
   color varchar(50) not null
 );

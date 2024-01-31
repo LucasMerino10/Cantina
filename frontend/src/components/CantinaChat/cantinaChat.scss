@@ -16,6 +16,13 @@
   &__messages {
     width: 100%;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      scrollbar-color: $inputBorder transparent;
+    }
   }
 
   &__footer {
