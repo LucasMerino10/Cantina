@@ -20,16 +20,19 @@ const seed = async () => {
     // Generating Seed Data
 
     // Optional: Truncate tables (remove existing data)
-    await database.query("truncate item");
+    await database.query("truncate message");
 
     // Insert fake data into the 'item' table
-    for (let i = 0; i < 10; i += 1) {
-      queries.push(
-        database.query("insert into item(title) values (?)", [
-          faker.lorem.word(),
-        ])
-      );
-    }
+    await database.query(`INSERT INTO user (username, email, password, avatar, color)
+    VALUES("HighGround", "obi.wan@email.com", "password", "src/assets/images/Obi-Wan.png", "blue"),
+          ("GreenGuy", "yoda@email.com", "password", "src/assets/images/Yoda.png", "green"),
+          ("ChokeMaster", "darth.vader@email.com", "password", "src/assets/images/Darth-Vader.png", "red")`);
+
+    await database.query(`INSERT INTO message (content, message_date, user_id)
+                          VALUES(${faker.lorem.sentence}, 2024-01-31 08:48:27 AM, 1),
+                                (${faker.lorem.sentence}, "2024-01-31 08:52:30 AM", 3),
+                                (${faker.lorem.sentence}, "2024-01-31 08:52:59 AM", 2),
+                                (${faker.lorem.sentence}, "2024-01-31 08:54:18 AM", 1)`);
 
     /* ************************************************************************* */
 
