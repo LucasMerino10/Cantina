@@ -47,6 +47,7 @@ function SignInForm() {
         placeholder="Enter your password"
         value={password}
         setValue={setPassword}
+        handleSubmit={handleSubmit}
       />
       <button type="button" className="form__button" onClick={handleSubmit}>
         Enter the Cantina

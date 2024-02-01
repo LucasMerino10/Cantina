@@ -8,37 +8,33 @@ function CantinaChat() {
   const dbMessages = useLoaderData();
   const { messages, setMessages, loggedUser } = useGlobalContext();
   const [userMessage, setUserMessage] = useState("");
+
   useEffect(() => {
     setMessages(dbMessages);
   }, []);
 
-  const handleChange = (e) => {
-    setUserMessage(e.target.value);
+  const sendMessage = async (e) => {
+    const date = new Date().toISOString().slice(0, 16).replace("T", " ");
+    const message = {
+      content: e.target.value,
+      message_date: date,
+      user_id: loggedUser.id,
+    };
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/messages`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message),
+      }
+    );
+    if (response.status === 202) {
+      message.id = messages[messages.length - 1].id + 1;
+      setMessages([...messages, message]);
+    }
+    setUserMessage("");
   };
 
-  const sendMessage = async (e) => {
-    if (e.key === "Enter") {
-      const date = new Date().toISOString().slice(0, 16).replace("T", " ");
-      const message = {
-        content: e.target.value,
-        message_date: date,
-        user_id: loggedUser.id,
-      };
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/messages`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(message),
-        }
-      );
-      if (response.status === 202) {
-        message.id = messages[messages.length - 1].id + 1;
-        setMessages([...messages, message]);
-      }
-      setUserMessage("");
-    }
-  };
   return (
     <section className="chat">
       <section className="chat__messages">
@@ -63,8 +59,8 @@ function CantinaChat() {
           className="chat__footer__input"
           placeholder="Send a message"
           value={userMessage}
-          onChange={handleChange}
-          onKeyDown={sendMessage}
+          onChange={(e) => setUserMessage(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendMessage(e)}
         />
       </footer>
     </section>

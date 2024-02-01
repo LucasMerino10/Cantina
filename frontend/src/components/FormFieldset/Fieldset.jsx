@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "../SignInForm/signInForm.scss";
 
-function Fieldset({ type, label, placeholder, value, setValue }) {
+function Fieldset({ type, label, placeholder, value, setValue, handleSubmit }) {
   return (
     <fieldset className="form__fieldset">
       <label htmlFor={label} className="form__label">
@@ -12,6 +12,7 @@ function Fieldset({ type, label, placeholder, value, setValue }) {
         placeholder={placeholder}
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
         className="form__input"
       />
     </fieldset>
@@ -24,6 +25,11 @@ Fieldset.propTypes = {
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   setValue: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func,
+};
+
+Fieldset.defaultProps = {
+  handleSubmit: null,
 };
 
 export default Fieldset;
