@@ -19,3 +19,17 @@
   background-size: cover;
   background-position: center;
 }
+
+@mixin icon {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  background-size: cover;
+  border: none;
+
+  @media screen and (min-width: 768px) {
+    width: 3rem;
+    height: 3rem;
+  }
+}

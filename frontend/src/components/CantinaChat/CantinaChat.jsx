@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import ScrollToBottom from "react-scroll-to-bottom";
 import { useGlobalContext } from "../../context/ChatContext";
 import ChatMessage from "../ChatMessage/ChatMessage";
 import "./cantinaChat.scss";
@@ -38,15 +39,17 @@ function CantinaChat() {
   return (
     <section className="chat">
       <section className="chat__messages">
-        {messages &&
-          messages.map((e) => (
-            <ChatMessage
-              key={e.id}
-              date={e.message_date}
-              message={e.content}
-              messageUserId={e.user_id}
-            />
-          ))}
+        <ScrollToBottom className="chat__messages__container">
+          {messages &&
+            messages.map((e) => (
+              <ChatMessage
+                key={e.id}
+                date={e.message_date}
+                message={e.content}
+                messageUserId={e.user_id}
+              />
+            ))}
+        </ScrollToBottom>
       </section>
       <footer className="chat__footer">
         <img

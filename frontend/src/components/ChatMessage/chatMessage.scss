@@ -8,11 +8,17 @@
     justify-content: space-between;
     width: 90%;
     overflow-x: hidden;
-    margin: 1.5rem auto;
     gap: 1rem;
 
     &--other {
       flex-direction: row-reverse;
+      margin-right: auto;
+      padding: 0.5rem;
+    }
+
+    &--user {
+      margin-left: auto;
+      padding: 0.5rem 1rem;
     }
   }
 
@@ -88,6 +94,7 @@
   .chat {
     &__message {
       justify-content: space-around;
+      width: 70%;
     }
   }
 }

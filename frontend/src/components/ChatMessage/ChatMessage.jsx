@@ -9,7 +9,7 @@ function ChatMessage({ date, message, messageUserId }) {
     <figure
       className={
         user.id === loggedUser.id
-          ? `chat__message`
+          ? `chat__message chat__message--user`
           : `chat__message chat__message--other`
       }
     >

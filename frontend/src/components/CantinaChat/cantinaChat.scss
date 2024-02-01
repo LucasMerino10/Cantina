@@ -23,6 +23,11 @@
     &:hover {
       scrollbar-color: $inputBorder transparent;
     }
+
+    &__container {
+      height: 100%;
+      overflow-y: scroll;
+    }
   }
 
   &__footer {
@@ -63,5 +68,17 @@
 @media screen and (min-width: 768px) {
   .chat {
     max-width: 40rem;
+
+    &__footer {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .chat {
+    &__footer {
+      width: 80%;
+    }
   }
 }

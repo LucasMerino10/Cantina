@@ -7,9 +7,34 @@
   position: relative;
 }
 
+.cantina {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.signOut {
+  @include icon;
+  background-image: url("/src/assets/sign-out.svg");
+  top: 15px;
+  right: 15px;
+}
+
 @media screen and (min-width: 768px) {
   .cantina__container {
     background-image: url("/src/assets/images/CantinaBg2.jpg");
     background-size: cover;
+  }
+
+  .signOut {
+    top: 5%;
+    right: 5%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .signOut {
+    top: 5%;
+    right: 15%;
   }
 }
