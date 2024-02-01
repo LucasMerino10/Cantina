@@ -28,6 +28,37 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
+const updateUser = async (req, res, next) => {
+  try {
+    const user = await tables.user.readOne(req.params.id);
+
+    if (user) {
+      const updatedUser = {
+        id: parseInt(req.params.id, 10),
+        username: req.body.username,
+        email: req.body.email,
+        avatar: req.body.avatar,
+        color: req.body.color,
+      };
+      const result = await tables.user.edit(
+        updatedUser.id,
+        updatedUser.username,
+        updatedUser.email,
+        updatedUser.avatar,
+        updatedUser.color
+      );
+
+      if (result.affectedRows !== 0) {
+        res.status(200).json(updatedUser);
+      }
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getByEmail = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password)
@@ -61,4 +92,4 @@ const userLogin = async (req, res) => {
   });
 };
 
-module.exports = { getUser, getAllUsers, getByEmail, userLogin };
+module.exports = { getUser, getAllUsers, getByEmail, userLogin, updateUser };

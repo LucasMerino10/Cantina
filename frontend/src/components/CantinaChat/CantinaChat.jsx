@@ -7,16 +7,31 @@ import "./cantinaChat.scss";
 
 function CantinaChat() {
   const { dbMessages } = useLoaderData();
-  const { socket, messages, setMessages, loggedUser } = useGlobalContext();
+  const {
+    socket,
+    messages,
+    setMessages,
+    currentUser,
+    loggedUsers,
+    setLoggedUsers,
+  } = useGlobalContext();
   const [userMessage, setUserMessage] = useState("");
 
   useEffect(() => {
     setMessages(dbMessages);
-  }, []);
+  }, [loggedUsers]);
 
   useEffect(() => {
+    socket.on("user_loggedIn", (data) => {
+      setLoggedUsers(data);
+    });
+
     socket.on("receive_message", (data) => {
       setMessages((previousMessages) => [...previousMessages, data]);
+    });
+
+    socket.on("user_loggedOut", (data) => {
+      setLoggedUsers(data);
     });
   }, [socket]);
 
@@ -25,7 +40,7 @@ function CantinaChat() {
     const message = {
       content: e.target.value,
       message_date: date,
-      user_id: loggedUser.id,
+      user_id: currentUser.id,
     };
     const response = await fetch(
       `${import.meta.env.VITE_BACKEND_URL}/api/messages`,
@@ -60,7 +75,7 @@ function CantinaChat() {
       </section>
       <footer className="chat__footer">
         <img
-          src={loggedUser && loggedUser.avatar}
+          src={currentUser && currentUser.avatar}
           alt=""
           className="chat__footer__avatar"
         />

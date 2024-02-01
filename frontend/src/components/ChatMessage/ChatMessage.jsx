@@ -5,12 +5,12 @@ import "./chatMessage.scss";
 
 function ChatMessage({ date, message, messageUserId }) {
   const { dbUsers } = useLoaderData();
-  const { loggedUser } = useGlobalContext();
+  const { currentUser } = useGlobalContext();
   const user = dbUsers.find((e) => e.id === messageUserId);
   return (
     <figure
       className={
-        user.id === loggedUser.id
+        user.id === currentUser.id
           ? `chat__message chat__message--user`
           : `chat__message chat__message--other`
       }
@@ -18,7 +18,7 @@ function ChatMessage({ date, message, messageUserId }) {
       <img src={user.avatar} alt="" className="chat__avatar" />
       <figcaption
         className={
-          user.id === loggedUser.id
+          user.id === currentUser.id
             ? `chat__content chat__content--user`
             : `chat__content chat__content--other`
         }
@@ -28,7 +28,7 @@ function ChatMessage({ date, message, messageUserId }) {
         >{`${user.username} (${date}) :`}</p>
         <p
           className={`chat__content__text chat__content__text--${
-            user.id === loggedUser.id ? "user" : "other"
+            user.id === currentUser.id ? "user" : "other"
           } ${user.color}`}
         >
           {message}

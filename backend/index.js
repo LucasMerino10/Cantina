@@ -33,11 +33,18 @@ io.on("connection", (socket) => {
   socket.on("join", (data) => {
     loggedUsers.push(data);
     sockets.push(socket.id);
-    io.emit("user_loggedIn", [loggedUsers, sockets]);
+    io.emit("user_loggedIn", loggedUsers);
   });
 
   socket.on("send_message", (data) => {
     io.emit("receive_message", data);
+  });
+
+  socket.on("disconnect", () => {
+    const index = sockets.indexOf(socket.id);
+    loggedUsers.splice(index, 1);
+    console.info(`${socket.id} logged out`);
+    io.emit("user_loggedOut", loggedUsers);
   });
 });
 

@@ -6,7 +6,7 @@ import Fieldset from "../FormFieldset/Fieldset";
 
 function SignInForm() {
   const navigate = useNavigate();
-  const { socket, setLoggedUser } = useGlobalContext();
+  const { socket, setCurrentUser } = useGlobalContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,7 +26,7 @@ function SignInForm() {
 
     if (userResponse.status === 200) {
       const loggedUser = await userResponse.json();
-      setLoggedUser(loggedUser);
+      setCurrentUser(loggedUser);
       socket.emit("join", loggedUser);
       navigate("/chat");
     }

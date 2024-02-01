@@ -32,6 +32,16 @@ class UserManager extends AbstractManager {
 
     return result[0];
   }
+
+  async edit(id, username, email, avatar, color) {
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} SET username = ?, email = ?, avatar = ?, color = ? 
+    WHERE id = ?`,
+      [username, email, avatar, color, id]
+    );
+
+    return result;
+  }
 }
 
 module.exports = UserManager;

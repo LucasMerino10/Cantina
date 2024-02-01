@@ -13,6 +13,7 @@ const validatePassword = require("./middlewares/validatePassword");
 
 router.get("/user", userControllers.getAllUsers);
 router.get("/user/:id", userControllers.getUser);
+router.put("/user/:id", userControllers.updateUser);
 
 router.get("/messages", messageControllers.getMessages);
 router.post("/messages", messageControllers.addMessage);
