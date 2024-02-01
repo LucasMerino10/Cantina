@@ -1,14 +1,10 @@
 @import "./src/variables.scss";
+@import "./src/mixins.scss";
 
 .form {
-  display: flex;
-  flex-direction: column;
+  @include display;
   width: 80%;
   gap: 1rem;
-  border-top-right-radius: 32px;
-  border-bottom-left-radius: 32px;
-  background-color: $blackBg;
-  border: 2px solid $whiteGrey;
 
   &__title {
     color: $white;

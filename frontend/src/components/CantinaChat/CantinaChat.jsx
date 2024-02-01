@@ -6,11 +6,13 @@ import ChatMessage from "../ChatMessage/ChatMessage";
 import "./cantinaChat.scss";
 
 function CantinaChat() {
-  const { dbMessages } = useLoaderData();
+  const { dbMessages, dbUsers } = useLoaderData();
   const {
     socket,
     messages,
     setMessages,
+    users,
+    setUsers,
     currentUser,
     loggedUsers,
     setLoggedUsers,
@@ -20,6 +22,10 @@ function CantinaChat() {
   useEffect(() => {
     setMessages(dbMessages);
   }, [loggedUsers]);
+
+  useEffect(() => {
+    setUsers(dbUsers);
+  }, []);
 
   useEffect(() => {
     socket.on("user_loggedIn", (data) => {
@@ -32,6 +38,15 @@ function CantinaChat() {
 
     socket.on("user_loggedOut", (data) => {
       setLoggedUsers(data);
+    });
+
+    socket.on("fetch_users", async () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user`
+      );
+      const userResponse = await response.json();
+
+      setUsers(userResponse);
     });
   }, [socket]);
 
@@ -69,6 +84,8 @@ function CantinaChat() {
                 date={e.message_date}
                 message={e.content}
                 messageUserId={e.user_id}
+                users={users}
+                setUsers={setUsers}
               />
             ))}
         </ScrollToBottom>

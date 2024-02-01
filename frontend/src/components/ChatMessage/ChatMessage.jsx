@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
-import { useLoaderData } from "react-router-dom";
 import { useGlobalContext } from "../../context/ChatContext";
 import "./chatMessage.scss";
 
 function ChatMessage({ date, message, messageUserId }) {
-  const { dbUsers } = useLoaderData();
-  const { currentUser } = useGlobalContext();
-  const user = dbUsers.find((e) => e.id === messageUserId);
+  const { users, currentUser } = useGlobalContext();
+  const user = users.find((e) => e.id === messageUserId);
+
   return (
     <figure
       className={

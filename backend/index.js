@@ -40,6 +40,10 @@ io.on("connection", (socket) => {
     io.emit("receive_message", data);
   });
 
+  socket.on("user_update", () => {
+    io.emit("fetch_users");
+  });
+
   socket.on("disconnect", () => {
     const index = sockets.indexOf(socket.id);
     loggedUsers.splice(index, 1);

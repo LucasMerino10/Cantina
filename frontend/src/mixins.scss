@@ -3,7 +3,6 @@
 @mixin display {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
   border-top-right-radius: 32px;
   border-bottom-left-radius: 32px;
   background-color: $blackBg;

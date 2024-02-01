@@ -1,13 +1,8 @@
 @import "./src/mixins";
 
 .chat {
-  display: flex;
-  flex-direction: column;
-  border-top-right-radius: 32px;
-  border-bottom-left-radius: 32px;
-  background-color: $blackBg;
-  border: 2px solid $whiteGrey;
-  height: 75vh;
+  @include display;
+  height: 70vh;
   width: 95%;
   align-items: center;
   margin-bottom: 1rem;
@@ -67,7 +62,7 @@
 
 @media screen and (min-width: 768px) {
   .chat {
-    max-width: 40rem;
+    max-width: 35rem;
 
     &__footer {
       width: 90%;
