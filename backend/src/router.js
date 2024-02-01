@@ -11,6 +11,7 @@ const messageControllers = require("./controllers/messageControllers");
 
 const validatePassword = require("./middlewares/validatePassword");
 
+router.get("/user", userControllers.getAllUsers);
 router.get("/user/:id", userControllers.getUser);
 
 router.get("/messages", messageControllers.getMessages);

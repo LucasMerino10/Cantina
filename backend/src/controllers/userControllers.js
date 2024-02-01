@@ -14,6 +14,20 @@ const getUser = async (req, res, next) => {
   }
 };
 
+const getAllUsers = async (req, res, next) => {
+  try {
+    const users = await tables.user.readAll();
+
+    if (users) {
+      res.status(200).json(users);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getByEmail = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password)
@@ -47,4 +61,4 @@ const userLogin = async (req, res) => {
   });
 };
 
-module.exports = { getUser, getByEmail, userLogin };
+module.exports = { getUser, getAllUsers, getByEmail, userLogin };

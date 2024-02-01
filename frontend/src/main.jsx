@@ -19,8 +19,12 @@ const router = createBrowserRouter([
       const messageResult = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/messages`
       );
+      const userResult = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user`
+      );
       const dbMessages = await messageResult.json();
-      return dbMessages;
+      const dbUsers = await userResult.json();
+      return { dbMessages, dbUsers };
     },
   },
 ]);

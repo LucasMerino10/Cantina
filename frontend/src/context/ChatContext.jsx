@@ -8,30 +8,6 @@ const GlobalContext = createContext();
 function ChatContextProvider({ children }) {
   const [messages, setMessages] = useState(null);
 
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      username: "HighGround",
-      email: "obi.wan@email.com",
-      avatar: "/src/assets/images/Obi-Wan.png",
-      color: "blue",
-    },
-    {
-      id: 2,
-      username: "GreenGuy",
-      email: "yoda@email.com",
-      avatar: "/src/assets/images/Yoda.png",
-      color: "green",
-    },
-    {
-      id: 3,
-      username: "ChokeMaster",
-      email: "darth.vader@email.com",
-      avatar: "/src/assets/images/Darth-Vader.png",
-      color: "red",
-    },
-  ]);
-
   const [loggedUser, setLoggedUser] = useState(null);
 
   const contextValue = useMemo(() => {
@@ -39,20 +15,10 @@ function ChatContextProvider({ children }) {
       socket,
       messages,
       setMessages,
-      users,
-      setUsers,
       loggedUser,
       setLoggedUser,
     };
-  }, [
-    socket,
-    messages,
-    setMessages,
-    users,
-    setUsers,
-    loggedUser,
-    setLoggedUser,
-  ]);
+  }, [socket, messages, setMessages, loggedUser, setLoggedUser]);
 
   return (
     <GlobalContext.Provider value={contextValue}>

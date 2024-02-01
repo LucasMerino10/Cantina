@@ -25,8 +25,20 @@ const io = new Server(httpServer, {
   cors: { origin: process.env.FRONTEND_URL, methods: ["GET", "POST"] },
 });
 
+const loggedUsers = [];
+const sockets = [];
 io.on("connection", (socket) => {
   console.info(`User connected : ${socket.id}`);
+
+  socket.on("join", (data) => {
+    loggedUsers.push(data);
+    sockets.push(socket.id);
+    io.emit("user_loggedIn", [loggedUsers, sockets]);
+  });
+
+  socket.on("send_message", (data) => {
+    io.emit("receive_message", data);
+  });
 });
 
 // Get the port from the environment variables

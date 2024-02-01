@@ -15,6 +15,14 @@ class UserManager extends AbstractManager {
     return result[0];
   }
 
+  async readAll() {
+    const [result] = await this.database.query(
+      `SELECT id, username, email, avatar, color FROM user`
+    );
+
+    return result;
+  }
+
   async findByEmail(email) {
     const [result] = await this.database.query(
       `

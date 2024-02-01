@@ -6,13 +6,19 @@ import ChatMessage from "../ChatMessage/ChatMessage";
 import "./cantinaChat.scss";
 
 function CantinaChat() {
-  const dbMessages = useLoaderData();
-  const { messages, setMessages, loggedUser } = useGlobalContext();
+  const { dbMessages } = useLoaderData();
+  const { socket, messages, setMessages, loggedUser } = useGlobalContext();
   const [userMessage, setUserMessage] = useState("");
 
   useEffect(() => {
     setMessages(dbMessages);
   }, []);
+
+  useEffect(() => {
+    socket.on("receive_message", (data) => {
+      setMessages((previousMessages) => [...previousMessages, data]);
+    });
+  }, [socket]);
 
   const sendMessage = async (e) => {
     const date = new Date().toISOString().slice(0, 16).replace("T", " ");
@@ -30,8 +36,9 @@ function CantinaChat() {
       }
     );
     if (response.status === 202) {
-      message.id = messages[messages.length - 1].id + 1;
-      setMessages([...messages, message]);
+      const data = await response.json();
+      message.id = data;
+      socket.emit("send_message", message);
     }
     setUserMessage("");
   };
