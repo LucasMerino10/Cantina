@@ -1,6 +1,8 @@
 import { createContext, useContext, useMemo, useState } from "react";
 import PropTypes from "prop-types";
+import { io } from "socket.io-client";
 
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 const GlobalContext = createContext();
 
 function ChatContextProvider({ children }) {
@@ -34,6 +36,7 @@ function ChatContextProvider({ children }) {
 
   const contextValue = useMemo(() => {
     return {
+      socket,
       messages,
       setMessages,
       users,
@@ -41,7 +44,15 @@ function ChatContextProvider({ children }) {
       loggedUser,
       setLoggedUser,
     };
-  }, [messages, setMessages, users, setUsers, loggedUser, setLoggedUser]);
+  }, [
+    socket,
+    messages,
+    setMessages,
+    users,
+    setUsers,
+    loggedUser,
+    setLoggedUser,
+  ]);
 
   return (
     <GlobalContext.Provider value={contextValue}>
