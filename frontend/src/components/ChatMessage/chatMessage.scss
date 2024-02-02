@@ -13,7 +13,7 @@
     &--other {
       flex-direction: row-reverse;
       margin-right: auto;
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
     }
 
     &--user {
@@ -53,6 +53,12 @@
       &--green {
         color: $green;
       }
+      &--purple {
+        color: $purple;
+      }
+      &--orange {
+        color: $orange;
+      }
     }
 
     &__text {
@@ -88,6 +94,16 @@
 .green {
   color: $green;
   border: 2px solid $green;
+}
+
+.purple {
+  color: $purple;
+  border: 2px solid $purple;
+}
+
+.orange {
+  color: $orange;
+  border: 2px solid $orange;
 }
 
 @media screen and (min-width: 768px) {

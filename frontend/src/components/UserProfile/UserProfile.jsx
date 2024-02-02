@@ -3,7 +3,8 @@ import { useGlobalContext } from "../../context/ChatContext";
 import "./userProfile.scss";
 
 function UserProfile() {
-  const { socket, currentUser, setCurrentUser, avatars } = useGlobalContext();
+  const { socket, currentUser, setCurrentUser, avatars, colors } =
+    useGlobalContext();
   const [usernameValue, setUsernameValue] = useState(currentUser.username);
   const [emailValue, setEmailValue] = useState(currentUser.email);
   const [selectedColor, setSelectedColor] = useState(currentUser.color);
@@ -62,12 +63,12 @@ function UserProfile() {
           />
         </li>
         <li className="profile__item">
-          <label htmlFor="username" className="profile__label">
+          <label htmlFor="email" className="profile__label">
             Email :
           </label>
           <input
             type="text"
-            id="username"
+            id="email"
             value={emailValue}
             onChange={(e) => setEmailValue(e.target.value)}
             className={`profile__input profile__input--${selectedColor}`}
@@ -84,15 +85,11 @@ function UserProfile() {
             onChange={handleChange}
             className={`profile__select profile__select--${selectedColor}`}
           >
-            <option value="blue" className="profile__option--blue">
-              Blue
-            </option>
-            <option value="green" className="profile__option--green">
-              Green
-            </option>
-            <option value="red" className="profile__option--red">
-              Red
-            </option>
+            {colors.map((e) => (
+              <option key={e} value={e} className={`profile__option--${e}`}>
+                {e}
+              </option>
+            ))}
           </select>
         </li>
       </ul>

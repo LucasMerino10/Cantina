@@ -12,6 +12,8 @@ function ChatContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loggedUsers, setLoggedUsers] = useState(null);
 
+  const colors = ["blue", "green", "red", "purple", "orange"];
+
   const avatars = [
     "/src/assets/images/Boba-Fett.png",
     "/src/assets/images/C3PO.png",
@@ -39,6 +41,7 @@ function ChatContextProvider({ children }) {
       loggedUsers,
       setLoggedUsers,
       avatars,
+      colors,
     };
   }, [
     socket,
@@ -51,6 +54,7 @@ function ChatContextProvider({ children }) {
     loggedUsers,
     setLoggedUsers,
     avatars,
+    colors,
   ]);
 
   return (

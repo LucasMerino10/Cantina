@@ -31,9 +31,12 @@ io.on("connection", (socket) => {
   console.info(`User connected : ${socket.id}`);
 
   socket.on("join", (data) => {
-    loggedUsers.push(data);
-    sockets.push(socket.id);
-    io.emit("user_loggedIn", loggedUsers);
+    if (!loggedUsers.find((e) => e.id === data.id)) {
+      loggedUsers.push(data);
+      sockets.push(socket.id);
+
+      io.emit("user_loggedIn", loggedUsers);
+    }
   });
 
   socket.on("send_message", (data) => {
