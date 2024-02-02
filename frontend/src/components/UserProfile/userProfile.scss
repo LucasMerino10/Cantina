@@ -1,12 +1,40 @@
 @import "./src/mixins.scss";
 @import "./src/variables.scss";
+// @import "./src/animations.scss";
 
-@keyframes appear {
+@keyframes appearFromLeft {
   from {
-    left: -30rem;
+    left: -120rem;
   }
   to {
     left: 0.5rem;
+  }
+}
+
+@keyframes appearFromLeftLarge {
+  from {
+    left: -120rem;
+  }
+  to {
+    left: 14%;
+  }
+}
+
+@keyframes fadeAwayLeft {
+  from {
+    left: 0.5rem;
+  }
+  to {
+    left: -120rem;
+  }
+}
+
+@keyframes fadeAwayLeftLarge {
+  from {
+    left: 14%;
+  }
+  to {
+    left: -120rem;
   }
 }
 
@@ -16,15 +44,18 @@
   width: 95%;
   margin-bottom: 1rem;
   gap: 1rem;
-  display: none;
+  // display: none;
   //   overflow-y: scroll;
   //   height: 75vh;
-  // position: absolute;
-  // left: -30rem;
-  // bottom: -1rem;
+  transition: left 1s ease-in-out;
+  position: absolute;
+  left: -120rem;
+  bottom: 0;
+  z-index: 1;
+  // animation: fadeAwayLeft 1s ease forwards;
 
   &--visible {
-    animation: appear 1s ease forwards;
+    animation: appearFromLeft 1s ease forwards;
   }
 
   &__title {
@@ -132,17 +163,9 @@
   }
 
   &__button {
-    color: $white;
+    @include validationButton;
     margin: 0 auto 1rem;
     width: 40%;
-    background-color: $blackBg;
-    border: 1px solid $whiteGrey;
-    border-radius: 32px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 1rem;
-    transition: box-shadow 0.3s ease;
-    cursor: pointer;
   }
 
   &__avatars {
@@ -180,9 +203,22 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .profile {
+    max-width: 35rem;
+    animation: fadeAwayLeftLarge 1s ease-in-out forwards;
+
+    &--visible {
+      animation: appearFromLeftLarge 1s ease-in-out forwards;
+    }
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .profile {
     max-width: 30rem;
     display: flex;
+    animation: unset;
+    position: initial;
   }
 }

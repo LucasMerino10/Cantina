@@ -1,4 +1,23 @@
-@import "./src/mixins";
+@import "./src/mixins.scss";
+// @import "./src/animations.scss";
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 
 .chat {
   @include display;
@@ -7,6 +26,14 @@
   align-items: center;
   margin-bottom: 1rem;
   justify-content: flex-end;
+  // position: absolute;
+  // right: -30rem;
+  // bottom: -1rem;
+  animation: fadeIn 1s ease forwards;
+
+  &--fade {
+    animation: fadeOut 1s ease forwards;
+  }
 
   &__messages {
     width: 100%;
@@ -46,6 +73,8 @@
     }
 
     &__avatar {
+      display: block;
+      margin: auto;
       width: 3rem;
       height: 3rem;
       border-radius: 50%;
@@ -59,6 +88,11 @@
       width: 65%;
       color: $white;
     }
+
+    &__button {
+      border: none;
+      background-color: transparent;
+    }
   }
 }
 
@@ -69,6 +103,12 @@
     &__footer {
       width: 90%;
     }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .chat {
+    animation: unset;
   }
 }
 

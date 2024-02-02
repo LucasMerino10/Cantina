@@ -36,19 +36,8 @@
   }
 
   &__button {
-    color: $white;
+    @include validationButton;
     margin: 0 auto;
-    background-color: $blackBg;
-    border: 1px solid $whiteGrey;
-    border-radius: 32px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 1rem;
-    transition: box-shadow 0.3s ease;
-
-    &:hover {
-      box-shadow: 0 0 5px $white;
-    }
   }
 
   &__info {
