@@ -1,0 +1,85 @@
+@import "./src/variables.scss";
+@import "./src/mixins.scss";
+
+.form {
+  @include display;
+  width: 80%;
+  gap: 1rem;
+
+  &__title {
+    color: $white;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  &__fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+  }
+
+  &__label {
+    color: $white;
+  }
+
+  &__input {
+    color: $whiteGrey;
+    background-color: $inputBg;
+    border: 1px solid $inputBorder;
+    border-radius: 4px;
+    padding: 0.2rem 1rem;
+  }
+
+  &__button {
+    color: $white;
+    margin: 0 auto;
+    background-color: $blackBg;
+    border: 1px solid $whiteGrey;
+    border-radius: 32px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 5px $white;
+    }
+  }
+
+  &__info {
+    font-size: 1rem;
+    color: $white;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__redirect {
+    color: $blue;
+    text-align: center;
+    font-size: 0.8rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    max-width: 30rem;
+    gap: 2rem;
+
+    &__fieldset {
+      width: 75%;
+    }
+
+    &__button {
+      display: block;
+      width: 50%;
+    }
+  }
+}

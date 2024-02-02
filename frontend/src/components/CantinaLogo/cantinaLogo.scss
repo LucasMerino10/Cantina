@@ -1,0 +1,26 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  max-width: 40rem;
+
+  &__link {
+    width: 50%;
+  }
+  &__logo {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    height: 10vh;
+  }
+}

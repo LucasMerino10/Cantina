@@ -1,9 +1,5 @@
 // Load the express module to create a web application
 
-const express = require("express");
-
-const app = express();
-
 // Configure it
 
 /* ************************************************************************* */
@@ -25,19 +21,15 @@ const app = express();
 // 4. Be sure to only have URLs in the array with domains from which you want to allow requests.
 // For example: ["http://mysite.com", "http://another-domain.com"]
 
-/*
-const cors = require("cors");
+// const cors = require("cors");
 
-app.use(
-  cors({
-    origin: [
-      process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
-      "http://mysite.com",
-      "http://another-domain.com",
-    ]
-  })
-);
-*/
+// app.use(
+//   cors({
+//     origin: [
+//       process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
+//     ],
+//   })
+// );
 
 /* ************************************************************************* */
 
@@ -54,7 +46,6 @@ app.use(
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
-// app.use(express.json());
 // app.use(express.urlencoded());
 // app.use(express.text());
 // app.use(express.raw());
@@ -85,10 +76,11 @@ app.use(
 /* ************************************************************************* */
 
 // Import the API routes from the router module
-const router = require("./router");
 
 // Mount the API routes under the "/api" endpoint
-app.use("/api", router);
+
+/* ************************************************************************* */
+// Socket.io
 
 /* ************************************************************************* */
 
@@ -143,4 +135,4 @@ app.use(logErrors);
 
 /* ************************************************************************* */
 
-module.exports = app;
+// module.exports = httpServer;

@@ -1,0 +1,116 @@
+@import "./src/variables.scss";
+@import "./src/mixins.scss";
+
+.chat {
+  &__message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    overflow-x: hidden;
+    gap: 1rem;
+
+    &--other {
+      flex-direction: row-reverse;
+      margin-right: auto;
+      padding: 0.5rem 1rem;
+    }
+
+    &--user {
+      margin-left: auto;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transform: translateY(12px);
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+    &--user {
+      align-items: start;
+    }
+
+    &--other {
+      align-items: end;
+    }
+
+    &__username {
+      &--blue {
+        color: $blue;
+      }
+
+      &--red {
+        color: $red;
+      }
+
+      &--green {
+        color: $green;
+      }
+      &--purple {
+        color: $purple;
+      }
+      &--orange {
+        color: $orange;
+      }
+    }
+
+    &__text {
+      text-align: center;
+      background-color: $inputBg;
+      padding: 1rem;
+      width: 100%;
+
+      &--user {
+        border-top-right-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+        flex-direction: row-reverse;
+      }
+
+      &--other {
+        border-bottom-right-radius: 2rem;
+        border-top-left-radius: 2rem;
+      }
+    }
+  }
+}
+
+.blue {
+  color: $blue;
+  border: 2px solid $blue;
+}
+
+.red {
+  color: $red;
+  border: 2px solid $red;
+}
+
+.green {
+  color: $green;
+  border: 2px solid $green;
+}
+
+.purple {
+  color: $purple;
+  border: 2px solid $purple;
+}
+
+.orange {
+  color: $orange;
+  border: 2px solid $orange;
+}
+
+@media screen and (min-width: 768px) {
+  .chat {
+    &__message {
+      justify-content: space-around;
+      width: 70%;
+    }
+  }
+}

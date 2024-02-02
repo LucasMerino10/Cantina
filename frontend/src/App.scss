@@ -1,0 +1,14 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font;
+  font-weight: 500;
+}
+
+.container {
+  @include container;
+  background-image: url("./assets/images/3d-hyperspace-background-with-warp-tunnel-effect_1048-12526.jpg");
+}

@@ -1,0 +1,29 @@
+@import "./src/mixins.scss";
+
+.toggleMusic {
+  @include icon;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+  &--on {
+    background-image: url("/src/assets/speaker-high.svg");
+  }
+
+  &--off {
+    background-image: url("/src/assets/speaker-slash.svg");
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .toggleMusic {
+    top: 5%;
+    left: 5%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .toggleMusic {
+    top: 5%;
+    left: 15%;
+  }
+}

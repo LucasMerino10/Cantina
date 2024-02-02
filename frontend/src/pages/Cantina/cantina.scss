@@ -1,0 +1,54 @@
+@import "./src/mixins.scss";
+
+.cantina__container {
+  @include container;
+  justify-content: space-evenly;
+  background-image: url("/src/assets/images/CantinaBand.jpg");
+  position: relative;
+}
+
+.cantina {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.signOut {
+  @include icon;
+  background-image: url("/src/assets/sign-out.svg");
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .cantina__container {
+    background-image: url("/src/assets/images/CantinaBg2.jpg");
+    background-size: cover;
+  }
+
+  .signOut {
+    top: 5%;
+    right: 5%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cantina {
+    width: 95%;
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .signOut {
+    top: 5%;
+    right: 15%;
+  }
+
+  .cantina {
+    justify-content: space-evenly;
+  }
+}
