@@ -1,0 +1,35 @@
+@keyframes appearFromLeft {
+  from {
+    left: -30rem;
+  }
+  to {
+    left: 0.5rem;
+  }
+}
+
+@keyframes fadeAwayLeft {
+  from {
+    left: 0.5rem;
+  }
+  to {
+    left: -30rem;
+  }
+}
+
+@keyframes appearFromRight {
+  from {
+    right: -30rem;
+  }
+  to {
+    right: 0.5rem;
+  }
+}
+
+@keyframes fadeAwayRight {
+  from {
+    right: 0.5rem;
+  }
+  to {
+    right: -30rem;
+  }
+}

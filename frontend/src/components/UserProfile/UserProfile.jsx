@@ -3,8 +3,15 @@ import { useGlobalContext } from "../../context/ChatContext";
 import "./userProfile.scss";
 
 function UserProfile() {
-  const { socket, currentUser, setCurrentUser, avatars, colors } =
-    useGlobalContext();
+  const {
+    socket,
+    currentUser,
+    setCurrentUser,
+    avatars,
+    colors,
+    userProfileDisplay,
+    setUserProfileDisplay,
+  } = useGlobalContext();
   const [usernameValue, setUsernameValue] = useState(currentUser.username);
   const [emailValue, setEmailValue] = useState(currentUser.email);
   const [selectedColor, setSelectedColor] = useState(currentUser.color);
@@ -19,7 +26,14 @@ function UserProfile() {
   };
 
   const handleSubmit = async () => {
-    if (usernameValue !== "" && emailValue !== "") {
+    if (
+      usernameValue !== "" &&
+      emailValue !== "" &&
+      (usernameValue !== currentUser.username ||
+        emailValue !== currentUser.email ||
+        selectedAvatar !== currentUser.avatar ||
+        selectedColor !== currentUser.color)
+    ) {
       const updatedUser = {
         username: usernameValue,
         email: emailValue,
@@ -43,10 +57,14 @@ function UserProfile() {
         socket.emit("user_update");
       }
     }
+
+    setUserProfileDisplay(!userProfileDisplay);
   };
 
   return (
-    <section className="profile">
+    <section
+      className={userProfileDisplay ? `profile profile--visible` : `profile`}
+    >
       <h2 className="profile__title">My profile</h2>
 
       <ul className="profile__items">

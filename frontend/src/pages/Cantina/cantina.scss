@@ -12,7 +12,7 @@
   justify-content: center;
   width: 100%;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .signOut {
@@ -39,6 +39,7 @@
   .cantina {
     width: 95%;
     gap: 2rem;
+    align-items: center;
   }
 }
 

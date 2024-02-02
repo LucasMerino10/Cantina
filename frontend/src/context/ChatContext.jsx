@@ -1,13 +1,18 @@
 import { createContext, useContext, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import { io } from "socket.io-client";
+import cantinaBand from "../assets/CantinaBand.mp3";
 
 const socket = io(import.meta.env.VITE_BACKEND_URL);
+const music = new Audio(cantinaBand);
+
 const GlobalContext = createContext();
 
 function ChatContextProvider({ children }) {
   const [messages, setMessages] = useState(null);
   const [users, setUsers] = useState(null);
+
+  const [userProfileDisplay, setUserProfileDisplay] = useState(false);
 
   const [currentUser, setCurrentUser] = useState(null);
   const [loggedUsers, setLoggedUsers] = useState(null);
@@ -32,6 +37,7 @@ function ChatContextProvider({ children }) {
   const contextValue = useMemo(() => {
     return {
       socket,
+      music,
       messages,
       setMessages,
       users,
@@ -42,9 +48,12 @@ function ChatContextProvider({ children }) {
       setLoggedUsers,
       avatars,
       colors,
+      userProfileDisplay,
+      setUserProfileDisplay,
     };
   }, [
     socket,
+    music,
     messages,
     setMessages,
     users,
@@ -55,6 +64,8 @@ function ChatContextProvider({ children }) {
     setLoggedUsers,
     avatars,
     colors,
+    userProfileDisplay,
+    setUserProfileDisplay,
   ]);
 
   return (

@@ -16,6 +16,8 @@ function CantinaChat() {
     currentUser,
     loggedUsers,
     setLoggedUsers,
+    userProfileDisplay,
+    setUserProfileDisplay,
   } = useGlobalContext();
   const [userMessage, setUserMessage] = useState("");
 
@@ -74,7 +76,7 @@ function CantinaChat() {
   };
 
   return (
-    <section className="chat">
+    <section className={userProfileDisplay ? `chat chat--fade` : `chat`}>
       <section className="chat__messages">
         <ScrollToBottom className="chat__messages__container">
           {messages &&
@@ -91,11 +93,18 @@ function CantinaChat() {
         </ScrollToBottom>
       </section>
       <footer className="chat__footer">
-        <img
-          src={currentUser && currentUser.avatar}
-          alt=""
-          className="chat__footer__avatar"
-        />
+        <button
+          type="button"
+          className="chat__footer__button"
+          aria-label="toggle profile section"
+          onClick={() => setUserProfileDisplay(!userProfileDisplay)}
+        >
+          <img
+            src={currentUser && currentUser.avatar}
+            alt=""
+            className="chat__footer__avatar"
+          />
+        </button>
         <input
           type="text"
           className="chat__footer__input"

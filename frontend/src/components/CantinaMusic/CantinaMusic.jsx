@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import cantinaBand from "../../assets/CantinaBand.mp3";
 import "./cantinaMusic.scss";
+import { useGlobalContext } from "../../context/ChatContext";
 
 function CantinaMusic() {
+  const { music } = useGlobalContext();
   const [sound, setSound] = useState(false);
-  const [music] = useState(new Audio(cantinaBand));
   music.loop = true;
 
   const toggleMusic = () => {
