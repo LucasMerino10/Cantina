@@ -14,7 +14,6 @@ function CantinaChat() {
     users,
     setUsers,
     currentUser,
-    loggedUsers,
     setLoggedUsers,
     userProfileDisplay,
     setUserProfileDisplay,
@@ -23,9 +22,6 @@ function CantinaChat() {
 
   useEffect(() => {
     setMessages(dbMessages);
-  }, [loggedUsers]);
-
-  useEffect(() => {
     setUsers(dbUsers);
   }, []);
 
@@ -105,7 +101,11 @@ function CantinaChat() {
             className="chat__footer__avatar"
           />
         </button>
+        <label htmlFor="sendMessage" className="chat__footer__label">
+          Send a message
+        </label>
         <input
+          id="sendMessage"
           type="text"
           className="chat__footer__input"
           placeholder="Send a message"

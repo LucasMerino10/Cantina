@@ -8,6 +8,7 @@ function Fieldset({ type, label, placeholder, value, setValue, handleSubmit }) {
         {label}
       </label>
       <input
+        id={label}
         type={type}
         placeholder={placeholder}
         value={value}

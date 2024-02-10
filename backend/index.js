@@ -22,7 +22,10 @@ app.use("/api", router);
 const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
-  cors: { origin: process.env.FRONTEND_URL, methods: ["GET", "POST"] },
+  cors: {
+    origin: [process.env.FRONTEND_URL, process.env.LOCAL_NETWORK_URL],
+    methods: ["GET", "POST"],
+  },
 });
 
 const loggedUsers = [];

@@ -79,6 +79,11 @@
       height: 3rem;
       border-radius: 50%;
     }
+
+    &__label {
+      @include hiddenLabel;
+    }
+
     &__input {
       background-color: $inputBg;
       border: 1px solid $whiteGrey;
@@ -87,6 +92,7 @@
       padding: 0.5rem;
       width: 65%;
       color: $white;
+      font-size: 1rem;
     }
 
     &__button {
