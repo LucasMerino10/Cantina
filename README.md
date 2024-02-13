@@ -19,22 +19,10 @@ Set in the Star Wars universe, you can host this application to chat with people
 ## Stack
 
 <p align="center">
-  <a href="https://react.dev" style="color: transparent;">
-    <img src="./frontend/src/ressources/readme/react.svg" width=150 />
-  </a>
-  <a href="https://sass-lang.com" style="color: transparent;">
-    <img src="./frontend/src/ressources/readme/sass.svg" width=150 />
-  </a>
-  <a href="https://nodejs.org/en" style="color: transparent;">
-    <img src="./frontend/src/ressources/readme/node.svg" width=150 />
-  </a>
-  <a href="https://expressjs.com/fr" style="color: transparent;">
-    <img src="./frontend/src/ressources/readme/express.svg" width=150 />
-  </a>
-  <a href="https://socket.io/" style="color: transparent;">
-    <img src="./frontend/src/ressources/readme/socket.svg" width=150 />
-  </a>
-  <a href="https://www.mysql.com/fr/" style="color: transparent;">
-    <img src="./frontend/src/ressources/readme/mysql.svg" width=150 />
-  </a>
+  <a href="https://react.dev" style="color: transparent;"><img src="./frontend/src/ressources/readme/react.svg"  target="_blank" rel="noreferrer" width=150 /></a>
+  <a href="https://sass-lang.com" style="color: transparent;"><img src="./frontend/src/ressources/readme/sass.svg" target="_blank" rel="noreferrer" width=150 /></a>
+  <a href="https://nodejs.org/en" style="color: transparent;"><img src="./frontend/src/ressources/readme/node.svg" target="_blank" rel="noreferrer"  width=150 /></a>
+  <a href="https://expressjs.com/fr" style="color: transparent;"><img src="./frontend/src/ressources/readme/express.svg" target="_blank" rel="noreferrer"  width=150 /></a>
+  <a href="https://socket.io/" style="color: transparent;"><img src="./frontend/src/ressources/readme/socket.svg" target="_blank" rel="noreferrer"  width=150 /></a>
+  <a href="https://www.mysql.com/fr/" style="color: transparent;"><img src="./frontend/src/ressources/readme/mysql.svg" target="_blank" rel="noreferrer"  width=150 /></a>
 </p>
