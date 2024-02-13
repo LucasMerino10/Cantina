@@ -136,7 +136,7 @@ function UserProfile() {
           ))}
       </section>
       <button type="button" className="profile__button" onClick={handleSubmit}>
-        Valider
+        Confirm
       </button>
     </section>
   );

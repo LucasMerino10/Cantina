@@ -6,8 +6,12 @@ Set in the Star Wars universe, you can host this application to chat with people
 
 ### Visuals
 
-![Page de connexion](./frontend/src/ressources/SignUp-Result-Mobile.png)
+#### Mobile version
 
-![Page de Chat mobile](./frontend/src/ressources/Cantina-Result-Mobile.png)
+![Page de Chat Desktop](./frontend/src/ressources/SignIn-Result-Mobile.png)
+
+![Page de Chat Desktop](./frontend/src/ressources/Cantina-Result-Mobile.png)
+
+#### Desktop version
 
 ![Page de Chat Desktop](./frontend/src/ressources/Cantina-Result-Desktop.png)
